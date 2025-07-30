@@ -1,0 +1,23 @@
+@import './styles/global';
+
+.App {
+  min-height: 100vh;
+}
+
+.not-found {
+  @include flex-center;
+  min-height: 100vh;
+  flex-direction: column;
+  text-align: center;
+  color: $secondary-color;
+  
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: $danger-color;
+  }
+  
+  p {
+    font-size: 1.2rem;
+  }
+}

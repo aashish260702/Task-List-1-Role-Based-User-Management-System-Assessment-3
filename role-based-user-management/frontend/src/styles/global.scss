@@ -1,0 +1,75 @@
+@import 'variables';
+@import 'mixins';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  line-height: 1.6;
+  color: $dark-color;
+  background-color: $light-color;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.btn {
+  @include button-style($primary-color);
+  
+  &.btn-success {
+    @include button-style($success-color);
+  }
+  
+  &.btn-danger {
+    @include button-style($danger-color);
+  }
+  
+  &.btn-secondary {
+    @include button-style($secondary-color);
+  }
+}
+
+.form-group {
+  margin-bottom: 1rem;
+  
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: $font-weight-bold;
+  }
+  
+  input, select {
+    @include form-input;
+  }
+  
+  .error-message {
+    color: $danger-color;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+  }
+}
+
+.card {
+  @include card;
+}
+
+.loading {
+  @include flex-center;
+  height: 200px;
+  font-size: 1.2rem;
+  color: $secondary-color;
+}
+
+.error {
+  color: $danger-color;
+  text-align: center;
+  padding: 1rem;
+}

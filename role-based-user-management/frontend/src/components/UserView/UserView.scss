@@ -1,0 +1,164 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.user-view {
+    min-height: 100vh;
+    background: linear-gradient(135deg, $light-color, darken($light-color, 5%));
+}
+
+.user-content {
+    padding: 2rem 0;
+}
+
+.welcome-card {
+    @include card;
+    background: linear-gradient(135deg, white, $light-color);
+    border: 1px solid $border-color;
+    margin-bottom: 2rem;
+
+    .welcome-header {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+
+        @media (max-width: 768px) {
+            flex-direction: column;
+            text-align: center;
+            gap: 1rem;
+        }
+    }
+
+    .user-avatar {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, $primary-color, $info-color);
+        @include flex-center;
+        color: white;
+        font-size: 2rem;
+        font-weight: $font-weight-bold;
+        box-shadow: $box-shadow;
+    }
+
+    .welcome-text {
+        h1 {
+            color: $dark-color;
+            margin-bottom: 0.5rem;
+            font-size: 2.2rem;
+            font-weight: $font-weight-bold;
+        }
+
+        p {
+            color: $secondary-color;
+            font-size: 1.1rem;
+        }
+    }
+
+    .user-details {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        @include respond-to(md) {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
+
+    .detail-item {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+
+        @include respond-to(md) {
+            align-items: center;
+        }
+
+        .label {
+            font-size: 0.9rem;
+            color: $secondary-color;
+            font-weight: $font-weight-bold;
+        }
+
+        .value {
+            font-size: 1.1rem;
+            color: $dark-color;
+
+            &.role-user {
+                color: $info-color;
+                font-weight: $font-weight-bold;
+            }
+        }
+    }
+}
+
+.info-cards {
+    @include grid(1, 1rem);
+    margin-bottom: 2rem;
+
+    @include respond-to(md) {
+        @include grid(3, 1rem);
+    }
+}
+
+.info-card {
+    text-align: center;
+    padding: 2rem;
+    background: white;
+    border: 1px solid $border-color;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .card-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+
+    h3 {
+        color: $dark-color;
+        margin-bottom: 1rem;
+        font-weight: $font-weight-bold;
+    }
+
+    p {
+        color: $secondary-color;
+        line-height: 1.6;
+    }
+}
+
+.restrictions-card {
+    background: linear-gradient(135deg, lighten($danger-color, 45%), lighten($warning-color, 40%));
+    border: 1px solid lighten($danger-color, 30%);
+
+    h2 {
+        color: darken($danger-color, 10%);
+        margin-bottom: 1rem;
+        font-weight: $font-weight-bold;
+    }
+
+    p {
+        color: darken($danger-color, 5%);
+        margin-bottom: 1rem;
+        font-weight: $font-weight-normal;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+
+        li {
+            padding: 0.5rem 0;
+            color: $dark-color;
+            font-weight: $font-weight-normal;
+
+            &:not(:last-child) {
+                border-bottom: 1px solid rgba($danger-color, 0.2);
+            }
+        }
+    }
+}

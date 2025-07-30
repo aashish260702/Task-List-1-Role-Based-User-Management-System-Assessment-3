@@ -1,0 +1,162 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.admin-view {
+  min-height: 100vh;
+  background-color: $light-color;
+}
+
+.admin-header {
+  text-align: center;
+  padding: 2rem 0;
+  
+  h1 {
+    color: $dark-color;
+    margin-bottom: 0.5rem;
+    font-size: 2.5rem;
+    font-weight: $font-weight-bold;
+  }
+  
+  p {
+    color: $secondary-color;
+    font-size: 1.1rem;
+  }
+}
+
+.admin-content {
+  padding-bottom: 2rem;
+  
+  .card {
+    margin-bottom: 2rem;
+    
+    h2 {
+      margin-bottom: 1.5rem;
+      color: $dark-color;
+      border-bottom: 2px solid $primary-color;
+      padding-bottom: 0.5rem;
+    }
+  }
+}
+
+.user-form {
+  .form-row {
+    @include grid(1, 1rem);
+    
+    @include respond-to(md) {
+      @include grid(2, 1rem);
+    }
+  }
+  
+  .create-btn {
+    margin-top: 1rem;
+    padding: 0.75rem 2rem;
+    font-weight: $font-weight-bold;
+  }
+}
+
+.users-table-container {
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+
+.users-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow-sm;
+  
+  th, td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid $border-color;
+  }
+  
+  th {
+    background: linear-gradient(135deg, $primary-color, darken($primary-color, 5%));
+    color: white;
+    font-weight: $font-weight-bold;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    
+    &:first-child {
+      border-top-left-radius: $border-radius;
+    }
+    
+    &:last-child {
+      border-top-right-radius: $border-radius;
+    }
+  }
+  
+  tbody tr {
+    transition: background-color 0.3s ease;
+    
+    &:hover {
+      background-color: rgba($primary-color, 0.05);
+    }
+    
+    &:last-child td {
+      border-bottom: none;
+    }
+  }
+  
+  .user-name {
+    font-weight: $font-weight-bold;
+    color: $dark-color;
+  }
+  
+  .user-email {
+    color: $secondary-color;
+    font-size: 0.9rem;
+  }
+  
+  .role-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: $font-weight-bold;
+    text-transform: uppercase;
+    
+    &.admin {
+      background: linear-gradient(135deg, $warning-color, darken($warning-color, 10%));
+      color: $dark-color;
+    }
+    
+    &.user {
+      background: linear-gradient(135deg, $info-color, darken($info-color, 10%));
+      color: white;
+    }
+  }
+  
+  .created-date {
+    color: $secondary-color;
+    font-size: 0.9rem;
+  }
+}
+
+.no-users {
+  text-align: center;
+  padding: 3rem;
+  color: $secondary-color;
+  
+  p {
+    font-size: 1.1rem;
+  }
+}
+
+// Responsive table
+@media (max-width: 768px) {
+  .users-table {
+    font-size: 0.8rem;
+    
+    th, td {
+      padding: 0.5rem;
+    }
+  }
+  
+  .role-badge {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.5rem;
+  }
+}
